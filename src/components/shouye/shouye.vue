@@ -108,13 +108,14 @@
     width 100%
     height 600px
     overflow hidden
+    margin-bottom 1000px
   .dogBox
     @keyframes nnh{
       from{
-        transform: translateX(0)
+        background-position: 0 0;
       }
       to{
-        transform: translateX(41px)
+        background-position: -85px 0;
       }
     }
     overflow hidden
