@@ -9,7 +9,6 @@
 
 <script>
 
-  /*import mainHeader from '../mainHeader/mainHeader.vue'*/
   import footer from '../footer/footer.vue'
 
   export default {

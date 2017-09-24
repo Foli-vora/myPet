@@ -1,5 +1,6 @@
 <template>
   <div>
+    goods组件
     <div>
       <epet-footer></epet-footer>
     </div>

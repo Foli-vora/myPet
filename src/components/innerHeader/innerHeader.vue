@@ -13,12 +13,12 @@
     <div class="middleHeader">
       <div class="middleHeaderWrap">
         <div class="wrapper">
-          <a href="" class="back"></a>
-          <span class="middleText">狗主粮</span>
-          <span class="rightImg"></span>
+          <a href="#" class="back"></a>
+          <span class="middleText">{{describe}}</span>
+          <span class="rightImg"  @click="showBottom"></span>
         </div>
       </div>
-      <div class="hiddenBottom">
+      <div class="hiddenBottom" v-show="isShow">
         <router-link to="/home">
           <span class="icon1"></span>
           <p>首页</p>
@@ -29,7 +29,7 @@
         </router-link>
         <router-link to="/shopcart">
           <span class="icon3">
-            <em>0</em>
+            <em>{{tool}}</em>
           </span>
           <p>购物车</p>
         </router-link>
@@ -47,18 +47,21 @@
   import BScroll from 'better-scroll'
 
   export default {
-    /*mounted () {
-      this.$nextTick(() => {
-        if(!this.scroll) {
-          this.scroll = new BScroll(this.$refs.nav,{
-            scrollX: true,
-            click: true
-          })
-        } else {
-          this.scroll.refresh()
-        }
-      })
-    }*/
+    props: {
+      describe: String,
+      tool: Number
+    },
+
+    data () {
+      return {
+        isShow: false
+      }
+    },
+    methods: {
+      showBottom () {
+        this.isShow = ! this.isShow
+      }
+    }
   }
 </script>
 

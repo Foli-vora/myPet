@@ -1,47 +1,50 @@
 <template>
     <div>
       <mainHeader></mainHeader>
-      <div class="container" ref="homeBody">
-        <div>
-          <bannerItem :num="index[0]"></bannerItem>
-          <!--<div class="blingbling">
-            <img src="https://img2.epetbar.com/nowater/2017-07/03/8/747562c921cd37cf0dafbe24ccfe62bd.gif">
-          </div>-->
-          <bannerItem :num="index[1]"></bannerItem>
-          <columnNav></columnNav>
+      <scroller style="top: 150px">
+        <div class="container" ref="homeBody">
+          <div>
+            <bannerItem :num="index[0]"></bannerItem>
+            <!--<div class="blingbling">
+              <img src="https://img2.epetbar.com/nowater/2017-07/03/8/747562c921cd37cf0dafbe24ccfe62bd.gif">
+            </div>-->
+            <bannerItem :num="index[1]"></bannerItem>
+            <columnNav></columnNav>
 
-          <split></split>
+            <split></split>
 
-          <surpriseItem></surpriseItem>
+            <surpriseItem></surpriseItem>
 
-          <split></split>
+            <split></split>
 
-          <currencyItem></currencyItem>
+            <currencyItem></currencyItem>
 
-          <split></split>
+            <split></split>
 
-          <customTitleItem :index="index[0]"></customTitleItem>
-          <fashionItem></fashionItem>
+            <customTitleItem :index="index[0]"></customTitleItem>
+            <fashionItem></fashionItem>
 
-          <split></split>
+            <split></split>
 
-          <customTitleItem :index="index[1]"></customTitleItem>
-          <bannerItem :num="index[2]"></bannerItem>
-          <split></split>
+            <customTitleItem :index="index[1]"></customTitleItem>
+            <bannerItem :num="index[2]"></bannerItem>
+            <split></split>
 
-          <customTitleItem :index="index[2]"></customTitleItem>
-          <goodsContainer></goodsContainer>
+            <customTitleItem :index="index[2]"></customTitleItem>
+            <goodsContainer></goodsContainer>
 
-          <split></split>
-          <charityItem></charityItem>
-          <split></split>
-          <judgeItem></judgeItem>
-          <split></split>
+            <split></split>
+            <charityItem></charityItem>
+            <split></split>
+            <judgeItem></judgeItem>
+            <split></split>
 
-          底部
+            底部
 
+          </div>
+          <div class="white"></div>
         </div>
-      </div>
+      </scroller>
       <div class="dogBox"></div>
     </div>
 </template>
@@ -105,10 +108,9 @@
 <style lang="stylus" rel="stylesheet/stylus">
 
   .container
-    width 100%
-    height 600px
-    overflow hidden
-    margin-bottom 1000px
+    .white
+      width 100%
+      height 194px
   .dogBox
     @keyframes nnh{
       from{

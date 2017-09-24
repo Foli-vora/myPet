@@ -5,6 +5,9 @@ import Vue from 'vue'
 
 import app from './app.vue'
 import router from './router'
+import VueScroller from 'vue-scroller'
+
+Vue.use(VueScroller)
 
 import {Swipe,SwipeItem} from 'mint-ui'
 Vue.component('mt-swipe',Swipe)

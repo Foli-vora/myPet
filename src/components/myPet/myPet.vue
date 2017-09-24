@@ -2,9 +2,9 @@
   <div>
     <div class="imgWrapper">
       <div class="headerTop">
-        <a href="" class="back"></a>
+        <a href="javascript:;" class="back"></a>
         <div class="register">
-          <a href="">注册</a>
+          <a href="javascript:;">注册</a>
         </div>
       </div>
       <div class="headerMiddle">
@@ -13,11 +13,11 @@
       <div class="headerBottom">
         <ul>
           <li class="bottomLeft">
-            <a href="javascript;">普通登录</a>
+            <a href="javascript:;">普通登录</a>
             <i></i>
           </li>
           <li class="bottomRight">
-            <a href="javascript;">手机动态密码登录</a>
+            <a href="javascript:;">手机动态密码登录</a>
           </li>
         </ul>
       </div>
@@ -52,8 +52,8 @@
               <li>
                 <span class="passwordIco"></span>
                 <input type="password" name="password" placeholder="动态密码">
-                <a href="" class="getPhonePass f14" v-show="false">已发送</a>
-                <a href="" class="getPhonePass f12">获取动态密码</a>
+                <a href="javascript:;" class="getPhonePass f14" v-show="false">已发送</a>
+                <a href="javascript:;" class="getPhonePass f12">获取动态密码</a>
               </li>
             </ul>
           </div>
@@ -62,7 +62,7 @@
         <a href="">忘记密码？</a>
       </div>
       <div class="d2">
-        <a href="">登录</a>
+        <a href="javascript:;">登录</a>
       </div>
       <div class="d3">
         APP专享:E宠团5折包邮,首单满99送99<a href="">去下载</a>
