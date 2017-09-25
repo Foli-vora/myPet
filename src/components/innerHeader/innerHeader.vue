@@ -18,26 +18,26 @@
           <span class="rightImg" @click="showBottom($event)" ref="rightBox"></span>
         </div>
       </div>
-      <div class="hiddenBottom" v-show="isShow">
-        <router-link to="/home">
-          <span class="icon1"></span>
-          <p>首页</p>
-        </router-link>
-        <router-link to="/goods">
-          <span class="icon2"></span>
-          <p>分类</p>
-        </router-link>
-        <router-link to="/shopcart">
+        <div class="hiddenBottom" v-show="isShow">
+          <router-link to="/home">
+            <span class="icon1"></span>
+            <p>首页</p>
+          </router-link>
+          <router-link to="/goods">
+            <span class="icon2"></span>
+            <p>分类</p>
+          </router-link>
+          <router-link to="/shopcart">
           <span class="icon3">
             <em>{{tool}}</em>
           </span>
-          <p>购物车</p>
-        </router-link>
-        <router-link to="/myPet">
-          <span class="icon4"></span>
-          <p>我的e宠</p>
-        </router-link>
-      </div>
+            <p>购物车</p>
+          </router-link>
+          <router-link to="/myPet">
+            <span class="icon4"></span>
+            <p>我的e宠</p>
+          </router-link>
+        </div>
     </div>
   </div>
 </template>

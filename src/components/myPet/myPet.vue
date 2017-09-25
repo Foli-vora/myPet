@@ -2,7 +2,7 @@
   <div>
     <div class="imgWrapper">
       <div class="headerTop">
-        <a href="javascript:;" class="back"></a>
+        <a href="#" class="back"></a>
         <div class="register">
           <a href="javascript:;">注册</a>
         </div>
