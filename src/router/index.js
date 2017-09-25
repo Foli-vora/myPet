@@ -13,6 +13,9 @@ import wanju from '../components/wanju/wanju.vue'
 import riyong from '../components/riyong/riyong.vue'
 import meirong from '../components/meirong/meirong.vue'
 
+import classify from '../components/classify/classify.vue'
+import brand from '../components/brand/brand.vue'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -58,14 +61,28 @@ export default new VueRouter({
     {
       path: '/goods',
       component: goods,
+      children:[
+        {
+          path: '/',
+          redirect: '/goods/classify'
+        },
+        {
+          path: 'classify',
+          component: classify
+        },
+        {
+          path: 'brand',
+          component: brand
+        }
+      ]
     },
     {
       path: '/shopcart',
-      component: shopcart,
+      component: shopcart
     },
     {
       path: '/myPet',
-      component: myPet,
+      component: myPet
     },
 
   ]

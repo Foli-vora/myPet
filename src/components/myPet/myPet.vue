@@ -18,7 +18,7 @@
           </li>
           <li class="bottomRight" @click="showForm(false)">
             <a href="javascript:;">手机动态密码登录</a>
-            <i v-show="rightShow"></i>
+            <i v-show="!leftShow"></i>
           </li>
         </ul>
       </div>
@@ -37,7 +37,7 @@
             </li>
           </ul>
         </div>
-        <div class="inner" v-show="rightShow">
+        <div class="inner" v-show="!leftShow">
             <ul>
               <li>
                 <span class="numIco"></span>
@@ -88,14 +88,12 @@
   export default {
     data () {
       return {
-        leftShow: true,
-        rightShow: false
+        leftShow: true
       }
     },
     methods: {
       showForm (isTrue) {
         this.leftShow = isTrue
-        this.rightShow = !isTrue
       }
     }
   }

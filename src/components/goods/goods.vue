@@ -1,7 +1,10 @@
 <template>
   <div>
-    goods组件
     <div>
+      <goodsHeader></goodsHeader>
+      <div class="content">
+
+      </div>
       <epet-footer :srcArr="srcArr"></epet-footer>
     </div>
     <router-view></router-view>
@@ -11,10 +14,12 @@
 <script>
 
   import footer from '../footer/footer.vue'
+  import goodsHeader from '../goodsHeader/goodsHeader.vue'
 
   export default {
     components: {
-      'epet-footer': footer
+      'epet-footer': footer,
+      goodsHeader
     },
     data () {
       return {
