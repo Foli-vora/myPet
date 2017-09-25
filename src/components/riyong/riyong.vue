@@ -136,7 +136,7 @@
     },
     data () {
       return {
-        describe: '狗狗日用外出',
+        describe: '日用外出',
         tool: 0,
         scrollTop: 106
       }

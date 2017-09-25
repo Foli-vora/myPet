@@ -136,7 +136,7 @@
     },
     data () {
       return {
-        describe: '狗狗医疗保健',
+        describe: '医疗保健',
         tool: 0,
         scrollTop: 106
       }

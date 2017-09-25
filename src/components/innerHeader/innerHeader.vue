@@ -70,12 +70,15 @@
         // 实时获取头部的高度
         setTimeout(() => {
           this.innerHeaderHeight = this.$refs.innerHeader.offsetHeight
+          this.$nextTick(() => {
+            this.$emit('listenToChild',this.innerHeaderHeight)
+          })
         },)
         // 获取完高度之后，再 使用$emit来触发一个自定义事件，并传递一个参数 这是子组件向父组件 传递信息的方法
         // 在这里 因为 获取头部的高度是
-        setTimeout(() => {
+        /*setTimeout(() => {
           this.$emit('listenToChild',this.innerHeaderHeight)
-        },1)
+        },1)*/
       }
     }
   }

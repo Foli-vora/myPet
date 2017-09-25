@@ -12,19 +12,20 @@
       </div>
       <div class="headerBottom">
         <ul>
-          <li class="bottomLeft">
+          <li class="bottomLeft" @click="showForm(true)">
             <a href="javascript:;">普通登录</a>
-            <i></i>
+            <i v-show="leftShow"></i>
           </li>
-          <li class="bottomRight">
+          <li class="bottomRight" @click="showForm(false)">
             <a href="javascript:;">手机动态密码登录</a>
+            <i v-show="rightShow"></i>
           </li>
         </ul>
       </div>
     </div>
     <div class="content">
       <div class="wrapper">
-        <div class="inner" v-show="true">
+        <div class="inner" v-show="leftShow">
           <ul>
             <li>
               <span class="nameIco"></span>
@@ -36,7 +37,7 @@
             </li>
           </ul>
         </div>
-        <div class="inner" v-show="false">
+        <div class="inner" v-show="rightShow">
             <ul>
               <li>
                 <span class="numIco"></span>
@@ -84,7 +85,20 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data () {
+      return {
+        leftShow: true,
+        rightShow: false
+      }
+    },
+    methods: {
+      showForm (isTrue) {
+        this.leftShow = isTrue
+        this.rightShow = !isTrue
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

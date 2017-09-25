@@ -136,7 +136,7 @@
     },
     data () {
       return {
-        describe: '狗狗美容香波',
+        describe: '美容香波',
         tool: 37,
         scrollTop: 106
       }

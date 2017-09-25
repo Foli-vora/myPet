@@ -136,7 +136,7 @@
     },
     data () {
       return {
-        describe: '狗狗零食玩具',
+        describe: '零食玩具',
         tool: 3,
         scrollTop: 106
       }
