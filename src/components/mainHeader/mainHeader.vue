@@ -1,6 +1,6 @@
 <template>
-  <div class="mainHeader">
-    <div class="xiazaiApp">
+  <div class="mainHeader" ref="mainHeader">
+    <div class="xiazaiApp" v-show="ShowImg" @click="showBottom">
       <span class="smallBtn">
         <img src="http://static.epetbar.com/static_wap/lib/common_images/closebtn_03.png">
       </span>
@@ -13,7 +13,8 @@
     <div class="middleHeader">
       <div class="mainWrapper">
         <div class="title">
-          <a href="https://wap.epet.com/place.html?pet_type=dog&fw=0">
+          <a href="javascript:;">
+          <!--<a href="https://wap.epet.com/place.html?pet_type=dog&fw=0">-->
             <span class="animals">狗狗站</span>
             <span class="line">|</span>
             <span class="text">重庆</span>
@@ -21,13 +22,15 @@
           </a>
         </div>
         <div class="searchText">
-          <a href="https://wap.epet.com/search.html?pet_type=dog&fw=0">
+          <!--<a href="https://wap.epet.com/search.html?pet_type=dog&fw=0">-->
+          <a href="javascript:;">
             <input type="search" placeholder="搜索商品和品牌">
             <img src="../../assets/search.png">
           </a>
         </div>
         <div class="talk">
-          <a href="https://wap.epet.com/wappms/pms.html?fw=0">
+          <!--<a href="https://wap.epet.com/wappms/pms.html?fw=0">-->
+          <a href="javascript:;">
             <img src="http://static.epetbar.com/static_web/wap/src/images/mydope.png">
           </a>
         </div>
@@ -44,7 +47,6 @@
               </span>
             </router-link>
           </li>
-
           <li>
             <router-link to="/home/zhuliang">
               <span class="rela">
@@ -53,7 +55,6 @@
               </span>
             </router-link>
           </li>
-
           <li>
             <router-link to="/home/yiliao">
               <span class="rela">
@@ -108,6 +109,28 @@
           this.scroll.refresh()
         }
       })
+    },
+
+    data () {
+      return {
+        ShowImg: true,
+        mainHeaderHeight: 150
+      }
+    },
+
+    methods: {
+      showBottom () {
+        this.ShowImg = !this.ShowImg
+        // 实时获取头部的高度
+        setTimeout(() => {
+          this.mainHeaderHeight = this.$refs.mainHeader.offsetHeight
+        },)
+        // 获取完高度之后，再 使用$emit来触发一个自定义事件，并传递一个参数 这是子组件向父组件 传递信息的方法
+        // 在这里 因为 获取头部的高度是
+        setTimeout(() => {
+          this.$emit('listenToChild',this.mainHeaderHeight)
+        },1)
+      }
     }
   }
 </script>

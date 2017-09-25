@@ -62,7 +62,7 @@
     methods: {
       showBottom (event) {
         if(event.target == this.$refs.rightBox) {
-          this.isShow = !this.isShow
+          this.isShow = ! this.isShow
         } else {
           this.ShowImg = !this.ShowImg
         }

@@ -136,7 +136,7 @@
     },
     data () {
       return {
-        describe: '狗狗狗主粮',
+        describe: '狗主粮',
         tool: 0,
         scrollTop: 106
       }

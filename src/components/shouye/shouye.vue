@@ -1,7 +1,7 @@
 <template>
     <div>
-      <mainHeader></mainHeader>
-      <scroller style="top: 150px">
+      <mainHeader @listenToChild="showHeaderHeight"></mainHeader>
+      <scroller :style="{top: scrollTop+'px'}">
         <div class="container" ref="homeBody">
           <div>
             <bannerItem :num="index[0]"></bannerItem>
@@ -42,7 +42,7 @@
             底部
 
           </div>
-          <div class="white"></div>
+          <div class="white" ref="whiteBox"></div>
         </div>
       </scroller>
       <div>
@@ -89,21 +89,21 @@
 
     data () {
       return {
-        index: [0,1,2,3,4]
+        index: [0,1,2,3,4],
+        scrollTop: 150
       }
     },
 
     mounted () {
       this.$nextTick(() => {
-        /*if(!this.scroll) {
-         this.scroll = new BScroll(this.$refs.homeBody,{
-         scrollY: true
-         })
-         } else {
-         this.scroll.refresh()
-         }*/
         this.scroll = new BScroll(this.$refs.homeBody)
       })
+    },
+    methods: {
+      showHeaderHeight (data) {
+        this.scrollTop = data
+        this.$refs.whiteBox.style.height = (data + 44) +'px'
+      }
     }
   }
 </script>
