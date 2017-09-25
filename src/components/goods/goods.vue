@@ -2,7 +2,7 @@
   <div>
     goods组件
     <div>
-      <epet-footer></epet-footer>
+      <epet-footer :srcArr="srcArr"></epet-footer>
     </div>
     <router-view></router-view>
   </div>
@@ -15,6 +15,16 @@
   export default {
     components: {
       'epet-footer': footer
+    },
+    data () {
+      return {
+        srcArr:[
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_1.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_2_sel.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_3.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_4.png'
+        ]
+      }
     }
   }
 </script>

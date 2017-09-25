@@ -46,7 +46,7 @@
         </div>
       </scroller>
       <div>
-        <epet-footer></epet-footer>
+        <epet-footer :srcArr="srcArr"></epet-footer>
       </div>
       <div class="dogBox"></div>
     </div>
@@ -90,7 +90,13 @@
     data () {
       return {
         index: [0,1,2,3,4],
-        scrollTop: 150
+        scrollTop: 150,
+        srcArr: [
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_1_sel.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_2.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_3.png',
+          'https://static.epetbar.com/static_web/wap/dist/images/background/main_tab_4.png'
+        ]
       }
     },
 

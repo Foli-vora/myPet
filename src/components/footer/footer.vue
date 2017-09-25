@@ -3,22 +3,22 @@
     <ul>
       <li>
         <router-link to="/home">
-          <img src="../../assets/main_tab_1_sel.png">
+          <img :src=srcArr[0]>
         </router-link>
       </li>
       <li>
         <router-link to="/goods">
-          <img src="../../assets/main_tab_2.png">
+          <img :src=srcArr[1]>
         </router-link>
       </li>
       <li>
         <router-link to="/shopcart">
-          <img src="../../assets/main_tab_3.png">
+          <img :src=srcArr[2]>
         </router-link>
       </li>
       <li>
         <router-link to="/myPet">
-          <img src="../../assets/main_tab_4.png">
+          <img :src=srcArr[3]>
         </router-link>
       </li>
     </ul>
@@ -26,7 +26,11 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: {
+      srcArr: Array
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
