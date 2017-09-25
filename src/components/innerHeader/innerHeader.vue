@@ -1,6 +1,6 @@
 <template>
-  <div class="innerHeader">
-    <div class="xiazaiApp">
+  <div class="innerHeader" ref="innerHeader">
+    <div class="xiazaiApp" v-show="ShowImg" @click="showBottom($event)">
       <span class="smallBtn">
         <img src="http://static.epetbar.com/static_wap/lib/common_images/closebtn_03.png">
       </span>
@@ -15,7 +15,7 @@
         <div class="wrapper">
           <a href="#" class="back"></a>
           <span class="middleText">{{describe}}</span>
-          <span class="rightImg"  @click="showBottom"></span>
+          <span class="rightImg" @click="showBottom($event)" ref="rightBox"></span>
         </div>
       </div>
       <div class="hiddenBottom" v-show="isShow">
@@ -54,12 +54,28 @@
 
     data () {
       return {
-        isShow: false
+        isShow: false,
+        ShowImg: true,
+        innerHeaderHeight: 106
       }
     },
     methods: {
-      showBottom () {
-        this.isShow = ! this.isShow
+      showBottom (event) {
+        if(event.target == this.$refs.rightBox) {
+          this.isShow = !this.isShow
+        } else {
+          this.ShowImg = !this.ShowImg
+        }
+
+        // 实时获取头部的高度
+        setTimeout(() => {
+          this.innerHeaderHeight = this.$refs.innerHeader.offsetHeight
+        },)
+        // 获取完高度之后，再 使用$emit来触发一个自定义事件，并传递一个参数 这是子组件向父组件 传递信息的方法
+        // 在这里 因为 获取头部的高度是
+        setTimeout(() => {
+          this.$emit('listenToChild',this.innerHeaderHeight)
+        },1)
       }
     }
   }
@@ -68,6 +84,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .innerHeader
     background white
+    height 100%
     .xiazaiApp
       max-width 640px
       margin 0 auto

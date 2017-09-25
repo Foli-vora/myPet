@@ -1,128 +1,128 @@
 <template>
   <div>
-    <div class="wanju">
-      <innerHeader :describe="describe" :tool="tool"></innerHeader>
+    <div>
+      <innerHeader :describe="describe" :tool="tool" @listenToChild="showHeaderHeight"></innerHeader>
       <router-view></router-view>
     </div>
-    <scroller style="top: 106px">
+    <scroller :style="{top: scrollTop+'px'}">
       <div class="bodyWrap">
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        零食玩具<br>
-        <div class="white"></div>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        狗狗零食玩具<br>
+        <div class="white" ref="whiteBox"></div>
       </div>
     </scroller>
   </div>
@@ -137,7 +137,14 @@
     data () {
       return {
         describe: '狗狗零食玩具',
-        tool: 3
+        tool: 3,
+        scrollTop: 106
+      }
+    },
+    methods: {
+      showHeaderHeight (data) {
+        this.scrollTop = data
+        this.$refs.whiteBox.style.height = data +'px'
       }
     }
   }
@@ -145,6 +152,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .white
-    height 150px
+    height 106px
     width 100%
 </style>

@@ -45,6 +45,9 @@
           <div class="white"></div>
         </div>
       </scroller>
+      <div>
+        <epet-footer></epet-footer>
+      </div>
       <div class="dogBox"></div>
     </div>
 </template>
@@ -71,7 +74,7 @@
   export default {
     components: {
       mainHeader,
-      'e-footer': footer,
+      'epet-footer': footer,
       surpriseItem,
       bannerItem,
       columnNav,
