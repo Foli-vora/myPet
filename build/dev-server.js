@@ -43,10 +43,24 @@ apiRouter.get('/home',function (req,res) {
 
 // 注册登录路由
 apiRouter.get('/login',function (req,res) {
-  res.send({
-    code: "succeed",
-    data: loginDate
-  })
+  var username = req.query.username
+  var password = req.query.password
+  var apiUsername = loginDate[0].username
+  var apiPassword = loginDate[0].password
+
+  if(username == apiUsername && password == apiPassword) {
+    console.log(1111)
+    res.send({
+      code: "succeed",
+      data: true
+    })
+  } else {
+    console.log(222)
+    res.send({
+      code: "succeed",
+      data: false
+    })
+  }
 })
 // 启用路由器
 app.use('/api',apiRouter)

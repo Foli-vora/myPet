@@ -3,7 +3,7 @@
     <div v-show="showMyPet">
       <div class="imgWrapper">
         <div class="headerTop">
-          <a href="#" class="back"></a>
+          <a href="javascript:;" class="back" onclick="window.history.go(-1)"></a>
           <div class="register">
             <a href="javascript:;" @click="registerShow">注册</a>
           </div>
@@ -33,11 +33,11 @@
             <ul>
               <li>
                 <span class="nameIco"></span>
-                <input type="text" name="username" placeholder="手机号/邮箱/用户名">
+                <input type="text" name="username" placeholder="手机号/邮箱/用户名" v-model="username">
               </li>
               <li>
                 <span class="passwordIco"></span>
-                <input type="password" name="password" placeholder="输入密码">
+                <input type="password" name="password" placeholder="输入密码" v-model="password">
               </li>
             </ul>
           </div>
@@ -67,7 +67,7 @@
           <a href="javascript:;" @click="showForgetPassword">忘记密码？</a>
         </div>
         <div class="d2">
-          <a href="javascript:;">登录</a>
+          <a href="javascript:;" @click="sendMsg">登录</a>
         </div>
         <div class="d3">
           APP专享:E宠团5折包邮,首单满99送99<a href="javascript:;">去下载</a>
@@ -118,7 +118,7 @@
             <span class="mEmailIco"></span>
             <input type="text" placeholder="验证码" name="code" style="padding-right:9.5em;">
             <a class="textImgAfter" href="javascript:;" v-show="false">
-              (<d id="time">60</d>)验证码已发送</a>
+              (<i id="time">60</i>)验证码已发送</a>
             <a class="textImgNow" href="javascript:;">获取短信验证码</a>
           </li>
           <li>
@@ -144,7 +144,7 @@
           <router-view></router-view>
         </div>
         <header class="bar">
-          <a href="javascript:;" class="back"></a>
+          <a href="javascript:;" class="back" onclick="window.history.go(-1)"></a>
           <h1 class="title">找回密码</h1>
         </header>
         <div class="content">
@@ -161,7 +161,7 @@
               <div class="inputBox">
                 <input type="text" class="mInput2 mr5">
                 <span style="display:none" class="btn">
-                  <d id="stime">60</d>秒后再次发送
+                  <i id="stime">60</i>秒后再次发送
                 </span>
                 <a href="javascript:;" class="btn">获取验证码</a>
               </div>
@@ -169,18 +169,21 @@
             <li>
               <label>输入密码：</label>
               <div class="inputBox">
-                <input type="password" class="mInput1" name="newpwd" check="no" id="newpwd">
+                <input type="password" class="mInput1">
               </div>
             </li>
             <li>
               <label>确认密码：</label>
               <div class="inputBox">
-                <input type="password" name="rptpwd" id="rptpwd" class="mInput1">
+                <input type="password" class="mInput1">
                 <input type="hidden" name="uid" id="uid">
               </div>
             </li>
           </ul>
         </div>
+      </div>
+      <div class="loginSucceed" v-show="isLoginSucceed">
+        <h1>恭喜你，登陆成功了</h1>
       </div>
     </div>
   </div>
@@ -188,6 +191,11 @@
 
 <script>
   import innerHeader from '../innerHeader/innerHeader.vue'
+
+  import axios from 'axios'
+
+  import { MessageBox } from 'mint-ui';
+
   export default {
     components: {
       innerHeader
@@ -201,7 +209,10 @@
         addUser: false,
         describe: '登录',
         tool: 0,
-        isShowForgetPassword: false
+        isShowForgetPassword: false,
+        isLoginSucceed: false,
+        username: '',
+        password: ''
       }
     },
     methods: {
@@ -219,6 +230,34 @@
       showForgetPassword () {
         this.isShowForgetPassword = true
         this.showMyPet = false
+      },
+      sendMsg () {
+        axios.get('/api/login',{
+          params:{
+            username: this.username,
+            password: this.password
+          }
+        })
+          .then((response) => {
+            this.result = response.data.data
+            console.log(this.result)
+            if(this.result){
+              MessageBox({
+                title: '提示',
+                message: '登录成功',
+              })
+              setTimeout(() => {
+                this.isLoginSucceed = true
+                this.showMyPet = false
+              },100)
+              /*时间有点问题*/
+            }else {
+              MessageBox({
+                title: '提示',
+                message: '用户名或密码错误,请重新输入',
+              })
+            }
+          })
       }
     }
   }
@@ -628,6 +667,4 @@
                 line-height 28px
                 background #ff8000;
                 border: #ff6600 solid 1px;
-
-
 </style>

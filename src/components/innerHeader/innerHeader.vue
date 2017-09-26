@@ -13,7 +13,7 @@
     <div class="middleHeader">
       <div class="middleHeaderWrap">
         <div class="wrapper">
-          <a href="#" class="back"></a>
+          <a href="javascript:;" class="back" onclick="window.history.go(-1)"></a>
           <span class="middleText">{{describe}}</span>
           <span class="rightImg" @click="showBottom($event)" ref="rightBox"></span>
         </div>
