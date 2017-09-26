@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="d1">
-          <a href="javascript:;">忘记密码？</a>
+          <a href="javascript:;" @click="showForgetPassword">忘记密码？</a>
         </div>
         <div class="d2">
           <a href="javascript:;">登录</a>
@@ -138,19 +138,70 @@
           <a class="btn" :class="{isRed: showRed}">下一步</a>
         </div>
       </div>
+      <div class="forgetPasswordWrap" v-show="isShowForgetPassword">
+        <div>
+          <innerHeader :describe="describe" :tool="tool"></innerHeader>
+          <router-view></router-view>
+        </div>
+        <header class="bar">
+          <a href="javascript:;" class="back"></a>
+          <h1 class="title">找回密码</h1>
+        </header>
+        <div class="content">
+          <!--<form action=""></form>-->
+          <ul class="form">
+            <li>
+              <label>手机号码：</label>
+              <div class="inputBox">
+                <input type="text" class="mInput1" placeholder="输入绑定的手机号码...">
+              </div>
+            </li>
+            <li>
+              <label>验证号码：</label>
+              <div class="inputBox">
+                <input type="text" class="mInput2 mr5">
+                <span style="display:none" class="btn">
+                  <d id="stime">60</d>秒后再次发送
+                </span>
+                <a href="javascript:;" class="btn">获取验证码</a>
+              </div>
+            </li>
+            <li>
+              <label>输入密码：</label>
+              <div class="inputBox">
+                <input type="password" class="mInput1" name="newpwd" check="no" id="newpwd">
+              </div>
+            </li>
+            <li>
+              <label>确认密码：</label>
+              <div class="inputBox">
+                <input type="password" name="rptpwd" id="rptpwd" class="mInput1">
+                <input type="hidden" name="uid" id="uid">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import innerHeader from '../innerHeader/innerHeader.vue'
   export default {
+    components: {
+      innerHeader
+    },
     data () {
       return {
         leftShow: true,
         showRegister: false,
         showMyPet: true,
         showRed: false,
-        addUser: false
+        addUser: false,
+        describe: '登录',
+        tool: 0,
+        isShowForgetPassword: false
       }
     },
     methods: {
@@ -164,6 +215,10 @@
       ShowAddUser () {
         this.addUser = true
         this.showRegister = false
+      },
+      showForgetPassword () {
+        this.isShowForgetPassword = true
+        this.showMyPet = false
       }
     }
   }
@@ -477,6 +532,102 @@
         .isRed
           background #f03131
 
+
+
+    .forgetPasswordWrap
+      font-size 18px
+      background #f5f5f5
+      width 100%
+      height 667px
+      text-align center
+      .bar
+        background #27c768
+        height 52.8px
+        width 100%
+        line-height 52.8px
+        padding 0 12px
+        position relative
+        .back
+          width 22px
+          height 20px
+          background url("https://static.epetbar.com/mpet/images/back1.png") center top no-repeat
+          background-size 13px 20px
+          margin-top 11px
+          position relative
+          z-index 100
+          float left
+        .title
+          display block
+          font-size 18px
+          line-height 44px
+          color #fff
+          text-align center
+          font-weight bold
+          width 100%
+          margin 0 -20px
+          position absolute
+      .content
+        margin-top 24px
+        .form
+          li
+            width 100%
+            padding 12px 0 12px 120px
+            border-bottom #eff3f5 solid 1px
+            background white
+            label
+              width 90px
+              text-align right
+              margin-left -90px
+              float left
+              font-size 15px
+              font-weight bold
+              line-height 29px
+              padding-right 10px
+            .inputBox
+              width 255px
+              height 31px
+              box-sizing border-box
+              line-height 30px
+              .mInput1
+                width 80%
+                height 30px
+                line-height normal
+                border #e2e2e2 solid 1px
+                border-radius 3px
+                padding 0 10px
+                font-size 12px
+                outline none
+                background #fff
+              .mInput2
+                width 40%
+                height 30px
+                line-height 28px
+                border #d0d0d0 solid 1px
+                border-radius 3px
+                padding 0 10px
+                font-size 13px
+                outline none
+                background #fff
+                vertical-align middle
+                margin-right 6px
+              .btn
+                vertical-align middle
+                display inline-block
+                border-radius 3px
+                box-shadow inset 0 1px rgba(255,255,255,0.2)
+                height 30px
+                padding 0 10px
+                color #fff
+                font-size 12px
+                text-align center
+              span
+                line-height 30px
+                background #f03131
+                border #f03131 solid 1px
+              a
+                line-height 28px
+                background #ff8000;
+                border: #ff6600 solid 1px;
 
 
 </style>
