@@ -21,6 +21,37 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+// mock data begin
+// 加载数据
+var apiData = require('../src/mock/home.json')
+
+// 加载login数据
+
+var loginDate = require('../src/mock/login.json')
+// 得到路由
+var apiRouter = express.Router()
+
+// 注册首页路由
+apiRouter.get('/home',function (req,res) {
+  // 返回数据
+  res.send({
+    code: "succeed",
+    data: apiData
+  })
+})
+
+// 注册登录路由
+apiRouter.get('/login',function (req,res) {
+  res.send({
+    code: "succeed",
+    data: loginDate
+  })
+})
+// 启用路由器
+app.use('/api',apiRouter)
+// mock data end
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
