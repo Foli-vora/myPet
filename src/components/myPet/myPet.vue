@@ -1,43 +1,47 @@
 <template>
   <div>
-    <div class="imgWrapper">
-      <div class="headerTop">
-        <a href="#" class="back"></a>
-        <div class="register">
-          <a href="javascript:;">注册</a>
+    <div v-show="showMyPet">
+      <div class="imgWrapper">
+        <div class="headerTop">
+          <a href="#" class="back"></a>
+          <div class="register">
+            <a href="javascript:;" @click="registerShow">注册</a>
+          </div>
         </div>
-      </div>
-      <div class="headerMiddle">
-        <img src="http://static.epetbar.com/mpet/images/login/logo.png">
-      </div>
-      <div class="headerBottom">
-        <ul>
-          <li class="bottomLeft" @click="showForm(true)">
-            <a href="javascript:;">普通登录</a>
-            <i v-show="leftShow"></i>
-          </li>
-          <li class="bottomRight" @click="showForm(false)">
-            <a href="javascript:;">手机动态密码登录</a>
-            <i v-show="!leftShow"></i>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="content">
-      <div class="wrapper">
-        <div class="inner" v-show="leftShow">
+        <div class="headerMiddle">
+          <img src="http://static.epetbar.com/mpet/images/login/logo.png">
+        </div>
+        <div class="headerBottom">
           <ul>
-            <li>
-              <span class="nameIco"></span>
-              <input type="text" name="username" placeholder="手机号/邮箱/用户名">
+            <li class="bottomLeft" @click="showForm(true)">
+              <a href="javascript:;">普通登录</a>
+              <i v-show="leftShow"></i>
             </li>
-            <li>
-              <span class="passwordIco"></span>
-              <input type="password" name="password" placeholder="输入密码">
+            <li class="bottomRight" @click="showForm(false)">
+              <a href="javascript:;">手机动态密码登录</a>
+              <i v-show="!leftShow"></i>
             </li>
           </ul>
         </div>
-        <div class="inner" v-show="!leftShow">
+        <div class="forgetPassword">
+
+        </div>
+      </div>
+      <div class="content">
+        <div class="wrapper">
+          <div class="inner" v-show="leftShow">
+            <ul>
+              <li>
+                <span class="nameIco"></span>
+                <input type="text" name="username" placeholder="手机号/邮箱/用户名">
+              </li>
+              <li>
+                <span class="passwordIco"></span>
+                <input type="password" name="password" placeholder="输入密码">
+              </li>
+            </ul>
+          </div>
+          <div class="inner" v-show="!leftShow">
             <ul>
               <li>
                 <span class="numIco"></span>
@@ -58,27 +62,81 @@
               </li>
             </ul>
           </div>
+        </div>
+        <div class="d1">
+          <a href="javascript:;">忘记密码？</a>
+        </div>
+        <div class="d2">
+          <a href="javascript:;">登录</a>
+        </div>
+        <div class="d3">
+          APP专享:E宠团5折包邮,首单满99送99<a href="javascript:;">去下载</a>
+        </div>
+        <div class="d4"></div>
+        <div class="d5">
+          <div class="text">合作网站登录</div>
+          <ul>
+            <li class="zhifubao">
+              <img src="http://static.epetbar.com/mpet/images/login/login_ico4.png">
+            </li>
+            <li class="qq">
+              <img src="http://static.epetbar.com/mpet/images/login/login_ico2.png">
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="d1">
-        <a href="">忘记密码？</a>
-      </div>
-      <div class="d2">
-        <a href="javascript:;">登录</a>
-      </div>
-      <div class="d3">
-        APP专享:E宠团5折包邮,首单满99送99<a href="">去下载</a>
-      </div>
-      <div class="d4"></div>
-      <div class="d5">
-        <div class="text">合作网站登录</div>
-        <ul>
-          <li class="zhifubao">
-            <img src="http://static.epetbar.com/mpet/images/login/login_ico4.png">
-          </li>
-          <li class="qq">
-            <img src="http://static.epetbar.com/mpet/images/login/login_ico2.png">
+    </div>
+    <div class="maskWrapper">
+      <div class="registerMask" v-show="showRegister">
+        <!--<form action=""></form>-->
+        <ul class="telephone">
+          <li>
+            <span class="telIco"></span>
+            <input type="text" placeholder="请输入手机号码" name="phone">
+            <!--输入框有内容 就变红色
+                会验证手机号码的正确性  -- 只能是数字，够11位
+            -->
           </li>
         </ul>
+        <div class="nextTick">
+          <a class="btn" :class="{isRed: showRed}" @click="ShowAddUser">下一步</a>
+        </div>
+      </div>
+      <div class="addUser" v-show="addUser">
+        <!--<form action=""></form>-->
+        <ul class="newUser">
+          <li>
+            <span class="telIco"></span>
+            <input type="text" placeholder="请输入手机号码" name="phone">
+          </li>
+          <li>
+            <span class="secCodeIco"></span>
+            <input type="seccode" placeholder="图片验证码" name="secCode" style="width:57%;display:inline-block;">
+            <img class="numberImg" src="https://wap.epet.com/share/seccode.html?hash=6157&height=30&width=85">
+          </li>
+          <li>
+            <span class="mEmailIco"></span>
+            <input type="text" placeholder="验证码" name="code" style="padding-right:9.5em;">
+            <a class="textImgAfter" href="javascript:;" v-show="false">
+              (<d id="time">60</d>)验证码已发送</a>
+            <a class="textImgNow" href="javascript:;">获取短信验证码</a>
+          </li>
+          <li>
+            <span class="mNameIco"></span>
+            <input type="text" placeholder="你的昵称/用户名" name="username">
+          </li>
+          <li>
+            <span class="mpasswordIco"></span>
+            <input type="password" placeholder="请设置密码" name="password">
+          </li>
+          <li>
+            <span class="mpasswordIco"></span>
+            <input type="password" placeholder="请确认密码" name="passwordag">
+          </li>
+        </ul>
+        <div class="nextTick">
+          <a class="btn" :class="{isRed: showRed}">下一步</a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,12 +146,24 @@
   export default {
     data () {
       return {
-        leftShow: true
+        leftShow: true,
+        showRegister: false,
+        showMyPet: true,
+        showRed: false,
+        addUser: false
       }
     },
     methods: {
       showForm (isTrue) {
         this.leftShow = isTrue
+      },
+      registerShow () {
+        this.showRegister = true
+        this.showMyPet = false
+      },
+      ShowAddUser () {
+        this.addUser = true
+        this.showRegister = false
       }
     }
   }
@@ -308,4 +378,105 @@
             margin auto
             max-width 176px
             vertical-align middle
+  .maskWrapper
+    .registerMask
+    .addUser
+      &>ul
+        margin-left 12px
+        &>li
+          border-bottom #e2e2e2 solid 1px
+          padding 14.4px 0 14.4px 30px
+          position relative
+          &>input
+            display block
+            height 21px
+            width 100%
+            font-size 13px
+            color #b8b8b8
+            border none
+            padding 0
+            -webkit-appearance none
+            background-color #fff
+            border-radius 3px
+            outline none
+          &>a
+            width 126px
+            margin-right 14px
+            position absolute
+            right 0
+            top 10px
+            border-radius 30px
+            text-align center
+            padding 8px 0
+            color #fff
+            font-size 14px
+            display block
+          .telIco
+            float left
+            display inline
+            width 17px
+            height 17px
+            background url("https://static.epetbar.com/mpet/images/login/ico1.png") no-repeat
+            background-size contain
+            margin 2px 0 0 -25px
+          .secCodeIco
+            float left
+            display inline
+            width 17px
+            height 17px
+            background url("https://static.epetbar.com/mpet/images/login/ico5.png") no-repeat bottom
+            background-size contain
+            margin 2px 0 0 -25px
+          .mEmailIco
+            float left
+            display inline
+            width 17px
+            height 21px
+            background url("https://static.epetbar.com/mpet/images/login/ico2.png") no-repeat
+            background-size contain
+            margin 7px 0 0 -25px
+          .mNameIco
+            float left
+            display inline
+            width 17px
+            height 21px
+            background url("https://static.epetbar.com/mpet/images/login/ico3.png") no-repeat
+            background-size contain
+            margin 1px 0 0 -25px
+          .mpasswordIco
+            float left
+            display inline
+            width 17px
+            height 20px
+            background url("https://static.epetbar.com/mpet/images/login/ico4.png") no-repeat
+            background-size contain
+            margin 0 0 0 -25px
+          .numberImg
+            position absolute
+            right 20px
+            vertical-align middle
+            border none
+          .textImgNow
+            background #fed171
+          .textImgAfter
+            background #e2e2e2
+      &>.nextTick
+        box-sizing border-box
+        margin-top 24px
+        padding-top 18px
+        text-align center
+        .btn
+          background #d7d7d7
+          color #fff
+          display block
+          margin 0 10%
+          border-radius 30px
+          font-size 15px
+          padding 7px 0
+          text-align center
+        .isRed
+          background #f03131
+
+
+
 </style>
