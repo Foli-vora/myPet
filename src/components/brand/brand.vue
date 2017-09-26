@@ -1,15 +1,24 @@
 <template>
-  <div class="brand-list">
-    <brandItem></brandItem>
-    brand组件
-  </div>
+  <scroller>
+    <div class="brand-list">
+      <imgItem :number="numberArr[0]"></imgItem>
+      <imgItem :number="numberArr[1]"></imgItem>
+      <imgItem :number="numberArr[2]"></imgItem>
+      <div class="white"></div>
+    </div>
+  </scroller>
 </template>
 
 <script>
-  import brandItem from '../bannerItem/bannerItem.vue'
+  import imgItem from '../imgItem/imgItem.vue'
   export default {
     components: {
-      brandItem
+      imgItem
+    },
+    data () {
+      return {
+        numberArr: [0,1,2,3,4,5,6,7,8,9]
+      }
     }
   }
 </script>
@@ -18,4 +27,7 @@
 .brand-list
   padding-top 40px
   background #f3f4f5
+  .white
+    width 100%
+    height 44px
 </style>
