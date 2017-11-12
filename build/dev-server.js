@@ -24,7 +24,7 @@ var app = express()
 
 // mock data begin
 // 加载数据
-var apiData = require('../src/mock/home.json')
+var apiData = require('../src/mock/login.json')
 
 // 加载login数据
 
@@ -43,27 +43,46 @@ apiRouter.get('/home',function (req,res) {
 
 // 注册登录路由
 apiRouter.get('/login',function (req,res) {
+  for (var i = 0; i < loginDate.length; i ++ ) {
+    var username = req.query.username
+    var password = req.query.password
+    var apiUsername = loginDate[i].username
+    var apiPassword = loginDate[i].password
+
+    if(username == apiUsername && password == apiPassword) {
+      console.log(1111)
+      res.send({
+        code: "succeed",
+        data: true
+      })
+    } else {
+      console.log(222)
+      res.send({
+        code: "succeed",
+        data: false
+      })
+    }
+  }
+})
+
+apiRouter.get('/signup', function (req, res) {
   var username = req.query.username
   var password = req.query.password
-  var apiUsername = loginDate[0].username
-  var apiPassword = loginDate[0].password
-
-  if(username == apiUsername && password == apiPassword) {
-    console.log(1111)
-    res.send({
-      code: "succeed",
-      data: true
-    })
-  } else {
-    console.log(222)
-    res.send({
-      code: "succeed",
-      data: false
-    })
+  let newDate = {
+    username,
+    password
   }
+  loginDate.push(newDate)
+
+  res.send({
+    code: "succeed",
+    data: true
+  })
+  console.log(loginDate)
 })
 // 启用路由器
 app.use('/api',apiRouter)
+
 // mock data end
 
 var compiler = webpack(webpackConfig)
